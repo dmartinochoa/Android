@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, ProfileActivity::class.java)
         intent.putExtra(
             "img",
-            "https://ep01.epimg.net/deportes/imagenes/2019/07/07/actualidad/1562503713_795898_1562527576_noticia_normal.jpg"
+            "https://ep01.epimg.net/deportes/imagenes/2019/07/07/actualidad/1562503713" +
+                    "_795898_1562527576_noticia_normal.jpg"
         )
         intent.putExtra("name", "Marc Marquez");
         intent.putExtra("birthday", "02/3/1993");
