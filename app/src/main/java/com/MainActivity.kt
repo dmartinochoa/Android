@@ -18,7 +18,10 @@ class MainActivity : AppCompatActivity() {
 
     fun openProfile() {
         val intent = Intent(this, ProfileActivity::class.java)
-        intent.putExtra("img", R.drawable.image)
+        intent.putExtra(
+            "img",
+            "https://ep01.epimg.net/deportes/imagenes/2019/07/07/actualidad/1562503713_795898_1562527576_noticia_normal.jpg"
+        )
         intent.putExtra("name", "Marc Marquez");
         intent.putExtra("birthday", "02/3/1993");
         intent.putExtra("city", "Cervera (Spain)");
