@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!--Image-->
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
@@ -19,100 +20,93 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/image" />
 
+        <!--Titles-->
         <TextView
             android:id="@+id/name"
+            style="@style/profile_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="@string/nombre"
-            android:textColor="#000000"
-            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/birthday"
+            style="@style/profile_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/fecha_de_nacimiento"
-            android:textColor="#000000"
-            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <TextView
             android:id="@+id/city"
+            style="@style/profile_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/cuidad"
-            android:textColor="#000000"
-            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/birthday" />
 
         <TextView
             android:id="@+id/desc"
+            style="@style/profile_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/descripcion"
-            android:textColor="#000000"
-            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/city" />
 
+        <!--Values-->
         <TextView
             android:id="@+id/nameValue"
+            style="@style/profile_values"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:text="@string/textview"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/name"
             app:layout_constraintTop_toTopOf="@+id/name" />
 
         <TextView
             android:id="@+id/cityValue"
+            style="@style/profile_values"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:text="@string/textview"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/city"
             app:layout_constraintTop_toTopOf="@+id/city" />
 
         <TextView
             android:id="@+id/birthdayValue"
+            style="@style/profile_values"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:text="@string/textview"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/birthday"
             app:layout_constraintTop_toTopOf="@+id/birthday" />
 
         <TextView
             android:id="@+id/descValue"
+            style="@style/profile_values"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:layout_marginBottom="40dp"
             android:justificationMode="inter_word"
             android:text="@string/textview"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/desc" />
-
+        
+        <!--Guidelines-->
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
