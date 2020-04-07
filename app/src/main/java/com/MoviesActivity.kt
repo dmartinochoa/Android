@@ -13,8 +13,7 @@ class MoviesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)
-        var recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        var adapter = recyclerView.adapter
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         var layoutManager = recyclerView.layoutManager
         val movieList = arrayListOf<MovieExample>()
         for (i in 1..50) {
@@ -28,13 +27,11 @@ class MoviesActivity : AppCompatActivity() {
                 )
             )
         }
-
-        recyclerView = findViewById(R.id.recyclerView)
+        val adapter = MovieAdapter(movieList)
         recyclerView.setHasFixedSize(true)
         layoutManager = LinearLayoutManager(this)
-        adapter = MovieAdapter(movieList)
-        recyclerView.setLayoutManager(layoutManager)
-        recyclerView.setAdapter(adapter)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
 
 
     }
