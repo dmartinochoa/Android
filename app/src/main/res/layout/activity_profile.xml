@@ -19,8 +19,7 @@
             app:civ_border_width="3dp"
             app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
             app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-            app:layout_constraintTop_toTopOf="parent"
-           />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!--Titles-->
         <TextView

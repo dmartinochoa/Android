@@ -8,9 +8,10 @@
     <string name="MOVIES">MOVIES</string>
     <string name="PROFILE">PROFILE</string>
     <string name="moviename">MovieName</string>
-    <string name="movieScore">movieScore</string>
     <string name="movieTitle">Titulo</string>
     <string name="originalMovieName">Titulo Original</string>
     <string name="releaseDate">Fecha De Lanzamiento:</string>
-    <string name="releaseDateValue">31-03-1990</string>
+    <string name="releaseDateValue">31/03/1990</string>
+    <string name="movieScore">10</string>
+    <string name="imageDescripcion">Image Descripcion</string>
 </resources>

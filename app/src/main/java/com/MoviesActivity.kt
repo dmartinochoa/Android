@@ -16,7 +16,7 @@ class MoviesActivity : AppCompatActivity() {
         var recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         var adapter = recyclerView.adapter
         var layoutManager = recyclerView.layoutManager
-        var movieList = arrayListOf<MovieExample>()
+        val movieList = arrayListOf<MovieExample>()
         for (i in 1..50) {
             movieList.add(
                 MovieExample(

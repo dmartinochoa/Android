@@ -14,23 +14,24 @@ public class MovieExample {
         this.movieOriginalName = movieOriginalName;
         this.releaseDateValue = releaseDateValue;
     }
-    public int getImageResouse(){
+
+    int getImageResouse() {
         return this.imageResouse;
     }
 
-    public String getMovieName() {
+    String getMovieName() {
         return this.movieName;
     }
 
-    public String getMovieOriginalName() {
+    String getMovieOriginalName() {
         return this.movieOriginalName;
     }
 
-    public String getMovieScore() {
+    String getMovieScore() {
         return this.movieScore;
     }
 
-    public String getReleaseDateValue() {
+    String getReleaseDateValue() {
         return this.releaseDateValue;
     }
 }
