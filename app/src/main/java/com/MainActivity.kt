@@ -10,9 +10,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val button = findViewById<Button>(R.id.button)
-        button.setOnClickListener {
+        val buttonProfile = findViewById<Button>(R.id.buttonProfile)
+        buttonProfile.setOnClickListener {
             openProfile()
+        }
+        val buttonMovies = findViewById<Button>(R.id.buttonMovieList)
+        buttonMovies.setOnClickListener {
+            openMovies()
         }
     }
 
@@ -20,8 +24,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, ProfileActivity::class.java)
         intent.putExtra(
             "img",
-            "https://ep01.epimg.net/deportes/imagenes/2019/07/07/actualidad/1562503713" +
-                    "_795898_1562527576_noticia_normal.jpg"
+            "https://steamuserimages-a.akamaihd.net/ugc/767229411675274255/A528F098384" +
+                    "4DAD19A54842FCBBBFACBD23DE05A/?imw=637&imh=358&ima=fit&impolicy=Letterb" +
+                    "ox&imcolor=%23000000&letterbox=true"
         )
         intent.putExtra("name", "Marc Marquez");
         intent.putExtra("birthday", "02/3/1993");
@@ -37,5 +42,10 @@ class MainActivity : AppCompatActivity() {
                     "febrero de 2020 extendió su contrato con Honda hasta 2024."
         );
         startActivity(intent)
+    }
+
+    fun openMovies() {
+        val intent2 = Intent(this, MoviesActivity::class.java)
+        startActivity(intent2)
     }
 }

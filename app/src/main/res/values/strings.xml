@@ -1,8 +1,16 @@
 <resources>
-    <string name="app_name">Profile</string>
+    <string name="app_name">Android</string>
     <string name="nombre">Nombre:</string>
     <string name="fecha_de_nacimiento">Fecha De Nacimiento:</string>
     <string name="cuidad">Cuidad:</string>
     <string name="descripcion">Descripcion:</string>
     <string name="textview">TextView</string>
+    <string name="MOVIES">MOVIES</string>
+    <string name="PROFILE">PROFILE</string>
+    <string name="moviename">MovieName</string>
+    <string name="movieScore">movieScore</string>
+    <string name="movieTitle">Titulo</string>
+    <string name="originalMovieName">Titulo Original</string>
+    <string name="releaseDate">Fecha De Lanzamiento:</string>
+    <string name="releaseDateValue">31-03-1990</string>
 </resources>
