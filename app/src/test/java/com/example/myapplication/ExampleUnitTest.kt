@@ -1,4 +1,4 @@
-package net.test
+package com.example.myapplication
 
 import org.junit.Test
 

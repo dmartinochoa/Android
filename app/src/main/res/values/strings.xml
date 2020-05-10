@@ -1,22 +1,7 @@
 <resources>
-    <string name="app_name">Android</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="nombre">Name:</string>
-    <string name="fecha_de_nacimiento">Birthday:</string>
-    <string name="cuidad">City:</string>
-    <string name="descripcion">Descripcion:</string>
-    <string name="textview">textView</string>
-    <string name="imageDescripcion">Image Descrpicion</string>
-    <string name="moviename">Movie Name</string>
-    <string name="movieScore">Movie Score</string>
-    <string name="originalMovieName">Original Name</string>
-    <string name="releaseDate">Release Date</string>
-    <string name="releaseDateValue">Release Date Value</string>
-    <string name="search_movies">Search Movies</string>
-    <string name="profile">Profile</string>
-    <string name="movies">Movies</string>
-    <string name="search_fragment">Search Fragment</string>
-    <string name="home_view">Home View</string>
+    <string name="app_name">TMDB</string>
+    <string name="title">title</string>
+    <string name="release_date">release date</string>
+    <string name="_10_5">10.5</string>
+    <string name="director">language</string>
 </resources>
