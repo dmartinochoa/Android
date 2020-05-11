@@ -16,15 +16,23 @@ class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
+
+        val adapter = MovieAdapter(movieList)
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.setHasFixedSize(true)
+        val layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager
+
         val intent = getIntent()
         val searchName = intent.getStringExtra("movieName")
+
         val retrofit = Retrofit.Builder().baseUrl(base)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val interfce = retrofit.create(ApiInterface::class.java)
         Log.d("test", searchName)
-        val call = interfce.searchMovies(api_key, language, searchName.toString(), page)
-        val test = this
+        val call = interfce.searchMovies(api_key, searchName, language)
+
         if (call != null) {
             call.enqueue(object : Callback<MovieResult?> {
                 override fun onResponse(
@@ -41,20 +49,16 @@ class SearchActivity : AppCompatActivity() {
                                 movie.posterPath,
                                 movie.title,
                                 movie.voteAverage,
-                                movie.overview,
+                                movie.originalLanguage,
                                 movie.releaseDate
                             )
                             movieList.add(
                                 movieElement
                             )
                         }
+                        val adapter = MovieAdapter(movieList)
+                        recyclerView.adapter = adapter
                     }
-                    val adapter = MovieAdapter(movieList)
-                    val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-                    recyclerView.setHasFixedSize(true)
-                    val layoutManager = LinearLayoutManager(test)
-                    recyclerView.layoutManager = layoutManager
-                    recyclerView.adapter = adapter
                 }
 
                 override fun onFailure(
@@ -66,12 +70,10 @@ class SearchActivity : AppCompatActivity() {
                 }
             })
         }
-
     }
 
     companion object {
         var base = "https://api.themoviedb.org"
-        var page = 1
         var api_key = "ac99f5d02a905e942cd90754fba21c3a"
         var language = "en-US"
     }

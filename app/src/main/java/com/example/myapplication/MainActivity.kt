@@ -21,6 +21,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        var adapter: MovieAdapter
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.setHasFixedSize(true)
+        val layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager
+
         val searchButton = findViewById<Button>(R.id.searchButton)
         val searchText = findViewById<EditText>(R.id.movieSearch)
         searchButton.setOnClickListener {
@@ -39,7 +46,6 @@ class MainActivity : AppCompatActivity() {
             language,
             page
         )
-        val test = this
         if (call != null) {
             call.enqueue(object : Callback<MovieResult?> {
                 override fun onResponse(
@@ -62,11 +68,7 @@ class MainActivity : AppCompatActivity() {
                             movieElement
                         )
                     }
-                    val adapter = MovieAdapter(movieList)
-                    val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-                    recyclerView.setHasFixedSize(true)
-                    val layoutManager = LinearLayoutManager(test)
-                    recyclerView.layoutManager = layoutManager
+                    adapter = MovieAdapter(movieList)
                     recyclerView.adapter = adapter
                 }
 

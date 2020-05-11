@@ -14,13 +14,11 @@ interface ApiInterface {
         @Query("page") page: Int
     ): Call<MovieResult?>?
 
-    @GET("/3/search/{query]")
+    @GET("/3/search/movie")
     fun searchMovies(
         @Query("api_key") apiKey: String?,
-        @Query("language") language: String?,
-        @Query("query") query: String?,
-        @Query("page") page: Int
-
+        @Query("query") name: String?,
+        @Query("language") language: String?
     ): Call<MovieResult?>?
 
 }
