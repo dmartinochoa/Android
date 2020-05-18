@@ -1,8 +1,6 @@
-package net.main.ui.search
+package net.main.ui.fragments.search
 
 
-import ApiInterface
-import MovieResult
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +14,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import net.main.data.model.MovieExample
+import net.main.data.network.ApiInterface
+import net.main.data.network.MovieResult
 import net.main.ui.activities.detail.DetailActivity
 import net.main.ui.activities.search.SearchActivity
 import net.main.ui.adaptor.MovieAdapter
@@ -78,9 +78,9 @@ class SearchFragment : Fragment() {
         val retrofit = Retrofit.Builder().baseUrl(base)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        val interfce = retrofit.create(ApiInterface::class.java)
+        val apiInterface = retrofit.create(ApiInterface::class.java)
 
-        interfce.getMovies("popular", api_key, language)
+        apiInterface.getMovies("popular", api_key, language)
             ?.enqueue(object : Callback<MovieResult?> {
                 override fun onResponse(
                     call: Call<MovieResult?>,
@@ -120,8 +120,8 @@ class SearchFragment : Fragment() {
     }
 
     companion object {
-        var base = "https://api.themoviedb.org"
-        var api_key = "ac99f5d02a905e942cd90754fba21c3a"
-        var language = "en-US"
+        val base = "https://api.themoviedb.org"
+        val api_key = "ac99f5d02a905e942cd90754fba21c3a"
+        val language = "en-US"
     }
 }

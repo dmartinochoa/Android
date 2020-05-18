@@ -46,12 +46,12 @@ class MovieAdapter(
     }
 
     class MovieViewHolder(itemView: View) : ViewHolder(itemView) {
-        var imageView = itemView.findViewById<ImageView>(R.id.movieImage)
-        var movieName = itemView.findViewById<TextView>(R.id.movieName)
-        var movieScore = itemView.findViewById<TextView>(R.id.movieScore)
-        var movieOriginalName = itemView.findViewById<TextView>(R.id.movieOriginalName)
-        var releaseDateValue = itemView.findViewById<TextView>(R.id.releaseDateValue)
-        var item = itemView.findViewById<RelativeLayout>(R.id.movieEntry)
+        var imageView: ImageView = itemView.findViewById<ImageView>(R.id.movieImage)
+        var movieName: TextView = itemView.findViewById<TextView>(R.id.movieName)
+        var movieScore: TextView = itemView.findViewById<TextView>(R.id.movieScore)
+        var movieOriginalName: TextView = itemView.findViewById<TextView>(R.id.movieOriginalName)
+        var releaseDateValue: TextView = itemView.findViewById<TextView>(R.id.releaseDateValue)
+        private var item: RelativeLayout = itemView.findViewById<RelativeLayout>(R.id.movieEntry)
 
         fun bind(movie: MovieExample, listener: (movie: MovieExample) -> Unit) {
             movieName.text = movie.movieName
