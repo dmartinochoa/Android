@@ -9,12 +9,13 @@
     card_view:cardUseCompatPadding="true">
 
     <RelativeLayout
+        android:id="@+id/movieEntry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp">
 
         <ImageView
-            android:id="@+id/imageViewProfile"
+            android:id="@+id/movieImage"
             android:layout_width="111dp"
             android:layout_height="113dp"
             android:layout_marginStart="10dp"
@@ -31,20 +32,20 @@
             android:id="@+id/movieName"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/imageViewProfile"
+            android:layout_alignTop="@+id/movieImage"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="55dp"
-            android:layout_toEndOf="@+id/imageViewProfile"
+            android:layout_marginRight="55dp"
+            android:layout_toEndOf="@+id/movieImage"
+            android:layout_toRightOf="@+id/movieImage"
             android:text="@string/moviename"
             android:textColor="@android:color/black"
             android:textSize="18sp"
-            android:textStyle="bold"
-                android:layout_toRightOf="@+id/imageViewProfile"
-                android:layout_marginRight="55dp"
-                android:layout_marginLeft="4dp"
-                android:layout_alignParentRight="true" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/movieScore"
@@ -52,14 +53,14 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/movieName"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="-1dp"
             android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
             android:text="@string/movieScore"
             android:textColor="@android:color/black"
             android:textSize="18sp"
-            android:textStyle="bold"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="6dp" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/movieOriginalName"
@@ -67,17 +68,17 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/movieName"
             android:layout_alignStart="@+id/movieName"
+            android:layout_alignLeft="@+id/movieName"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="17dp"
+            android:layout_marginRight="17dp"
             android:text="@string/originalMovieName"
             android:textColor="@android:color/black"
-            android:textSize="15sp"
-                android:layout_marginRight="17dp"
-                android:layout_marginLeft="0dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignLeft="@+id/movieName" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/releaseDate"
@@ -85,13 +86,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/movieOriginalName"
             android:layout_alignStart="@+id/movieOriginalName"
+            android:layout_alignLeft="@+id/movieOriginalName"
             android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
             android:layout_marginTop="10dp"
             android:text="@string/releaseDate"
             android:textColor="@android:color/black"
-            android:textSize="15sp"
-                android:layout_marginLeft="0dp"
-                android:layout_alignLeft="@+id/movieOriginalName" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/releaseDateValue"
@@ -99,13 +100,13 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/releaseDate"
             android:layout_alignEnd="@+id/movieScore"
+            android:layout_alignRight="@+id/movieScore"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
             android:text="@string/releaseDateValue"
             android:textColor="@android:color/black"
-            android:textSize="15sp"
-                android:layout_marginRight="0dp"
-                android:layout_alignRight="@+id/movieScore" />
+            android:textSize="15sp" />
 
 
     </RelativeLayout>
