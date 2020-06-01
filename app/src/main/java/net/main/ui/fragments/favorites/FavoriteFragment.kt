@@ -65,13 +65,6 @@ class FavoriteFragment : Fragment(), FavoritePresenter.View {
         movieAdapter = MovieAdapter {
             val intent = Intent(context, DetailActivity::class.java)
             intent.putExtra("id", it.movieId)
-            intent.putExtra("ogName", it.movieOriginalName)
-            intent.putExtra("name", it.movieName)
-            intent.putExtra("release", it.movieRelease)
-            intent.putExtra("img", it.movieImg)
-            intent.putExtra("ogName", it.movieOriginalName)
-            intent.putExtra("score", it.movieScore)
-            intent.putExtra("desc", it.movieDesc)
             startActivity(intent)
         }
         favoriteList.adapter = movieAdapter

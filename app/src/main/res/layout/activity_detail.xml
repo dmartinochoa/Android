@@ -18,26 +18,29 @@
             <!--Image-->
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/detailImg"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="129dp"
+                android:layout_height="125dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="40dp"
                 app:civ_border_color="@color/colorPrimaryDark"
                 app:civ_border_width="3dp"
-                app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <!--Titles-->
+
             <TextView
                 android:id="@+id/detailName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
                 android:layout_marginTop="40dp"
                 android:text="@string/nombre"
                 android:textColor="#000000"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/detailImg" />
 
             <TextView
@@ -48,7 +51,7 @@
                 android:text="@string/releaseDate"
                 android:textColor="#000000"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+                app:layout_constraintStart_toStartOf="@+id/detailName"
                 app:layout_constraintTop_toBottomOf="@+id/detailName" />
 
 
@@ -60,7 +63,7 @@
                 android:text="@string/descripcion"
                 android:textColor="#000000"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+                app:layout_constraintStart_toStartOf="@+id/detailReleaseDate"
                 app:layout_constraintTop_toBottomOf="@+id/detailReleaseDate" />
 
             <!--Values-->
@@ -89,6 +92,7 @@
                 app:layout_constraintStart_toEndOf="@+id/detailReleaseDate"
                 app:layout_constraintTop_toTopOf="@+id/detailReleaseDate" />
 
+            <!--Guidelines-->
             <TextView
                 android:id="@+id/detailDescValue"
                 android:layout_width="0dp"
@@ -100,11 +104,13 @@
                 android:textColor="#000000"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-                app:layout_constraintTop_toBottomOf="@+id/detailDesc" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/detailDesc"
+                app:layout_constraintTop_toBottomOf="@+id/detailDesc"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp" />
 
-            <!--Guidelines-->
             <CheckBox
                 android:id="@+id/star"
                 style="?android:attr/starStyle"
@@ -115,19 +121,6 @@
                 app:layout_constraintStart_toStartOf="@+id/detailDescValue"
                 app:layout_constraintTop_toBottomOf="@+id/detailDescValue" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guidelineLeft"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="33dp" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guidelineRight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="383dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </FrameLayout>

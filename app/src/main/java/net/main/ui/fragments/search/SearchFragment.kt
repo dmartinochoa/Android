@@ -64,12 +64,6 @@ class SearchFragment : Fragment() {
         movieAdapter = MovieAdapter {
             val intent = Intent(context, DetailActivity::class.java)
             intent.putExtra("id", it.movieId)
-            intent.putExtra("name", it.movieName)
-            intent.putExtra("release", it.movieRelease)
-            intent.putExtra("img", it.movieImg)
-            intent.putExtra("ogName", it.movieOriginalName)
-            intent.putExtra("score", it.movieScore)
-            intent.putExtra("desc", it.movieDesc)
             startActivity(intent)
         }
         popularList.adapter = movieAdapter
@@ -94,7 +88,7 @@ class SearchFragment : Fragment() {
                         for (element in movies) {
                             val movieElement = MovieExample(
                                 element.id,
-                                "http://image.tmdb.org/t/p/w500" + element.posterPath,
+                                element.posterPath,
                                 element.title,
                                 element.voteAverage,
                                 element.originalTitle,
