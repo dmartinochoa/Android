@@ -20,5 +20,26 @@
             android:scrollbars="vertical"
             tools:listitem="@layout/movie_example" />
 
+        <Button
+            android:id="@+id/favSearchButton"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/search"
+            android:visibility="gone"
+            />
+
+        <EditText
+            android:id="@+id/favSearchText"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/favSearchButton"
+            android:layout_marginBottom="11dp"
+            android:ems="10"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone" />
+
+
     </RelativeLayout>
 </FrameLayout>
