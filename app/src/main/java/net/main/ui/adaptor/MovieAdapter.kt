@@ -31,7 +31,7 @@ class MovieAdapter(
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val currentMovie = movies[position]
-        Picasso.get().load(currentMovie.movieImg)
+        Picasso.get().load("http://image.tmdb.org/t/p/w500" + currentMovie.movieImg)
             .into(holder.imageView)
         holder.movieName.text = currentMovie.movieName
         holder.movieScore.text = currentMovie.movieScore

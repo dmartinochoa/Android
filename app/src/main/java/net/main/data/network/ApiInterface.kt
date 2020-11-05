@@ -20,4 +20,10 @@ interface ApiInterface {
         @Query("language") language: String?
     ): Call<MovieResult?>?
 
+    @GET("/3/movie/{id}")
+   fun searchMovieById(
+        @Path("id") id: Long,
+        @Query("api_key") apiKey: String?,
+        @Query("language") lang: String
+    ): Call<MovieDetailResult?>?
 }

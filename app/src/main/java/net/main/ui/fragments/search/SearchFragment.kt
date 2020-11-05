@@ -9,10 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_favorites.*
 import net.main.data.model.MovieExample
 import net.main.data.network.ApiInterface
 import net.main.data.network.MovieResult
@@ -40,13 +42,17 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val searchButton = view.findViewById<Button>(R.id.searchButton)
+        searchButton.isEnabled = false
         val searchText = view.findViewById<EditText>(R.id.movieSearch)
         searchButton.setOnClickListener {
             val intent = Intent(context, SearchActivity::class.java)
             intent.putExtra("movieName", searchText.text.toString())
             this.startActivity(intent)
+        }
+        searchText.addTextChangedListener(){
+            searchButton.isEnabled = searchText.text.isNotEmpty()
+
         }
 
         val movieList = arrayListOf<MovieExample>()
@@ -64,12 +70,6 @@ class SearchFragment : Fragment() {
         movieAdapter = MovieAdapter {
             val intent = Intent(context, DetailActivity::class.java)
             intent.putExtra("id", it.movieId)
-            intent.putExtra("name", it.movieName)
-            intent.putExtra("release", it.movieRelease)
-            intent.putExtra("img", it.movieImg)
-            intent.putExtra("ogName", it.movieOriginalName)
-            intent.putExtra("score", it.movieScore)
-            intent.putExtra("desc", it.movieDesc)
             startActivity(intent)
         }
         popularList.adapter = movieAdapter
@@ -94,7 +94,7 @@ class SearchFragment : Fragment() {
                         for (element in movies) {
                             val movieElement = MovieExample(
                                 element.id,
-                                "http://image.tmdb.org/t/p/w500" + element.posterPath,
+                                element.posterPath,
                                 element.title,
                                 element.voteAverage,
                                 element.originalTitle,

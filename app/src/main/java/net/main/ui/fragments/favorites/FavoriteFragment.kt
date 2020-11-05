@@ -1,9 +1,11 @@
 package net.main.ui.fragments.favorites
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +14,7 @@ import net.main.data.model.MovieExample
 import net.main.data.repository.local.MovieDatabaseFactory
 import net.main.data.repository.remote.RoomLocalRepository
 import net.main.ui.activities.detail.DetailActivity
+import net.main.ui.activities.search.SearchActivity
 import net.main.ui.adaptor.MovieAdapter
 import net.test.R
 
@@ -34,9 +37,7 @@ class FavoriteFragment : Fragment(), FavoritePresenter.View {
 
     override fun onResume() {
         super.onResume()
-        val localRepository =
-            context?.let { MovieDatabaseFactory.get(it) }?.let { RoomLocalRepository(it) }
-        localRepository?.let { FavoritePresenter(this, it) }?.init()
+        presenter.init()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -48,11 +49,14 @@ class FavoriteFragment : Fragment(), FavoritePresenter.View {
         when (item.itemId) {
             R.id.deleteAll -> deleteAll()
         }
+
         return super.onOptionsItemSelected(item)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        favSearchButton.isEnabled = false
+
         val localRepository =
             context?.let { MovieDatabaseFactory.get(it) }?.let { RoomLocalRepository(it) }
         localRepository?.let { FavoritePresenter(this, it) }?.init()
@@ -65,25 +69,46 @@ class FavoriteFragment : Fragment(), FavoritePresenter.View {
         movieAdapter = MovieAdapter {
             val intent = Intent(context, DetailActivity::class.java)
             intent.putExtra("id", it.movieId)
-            intent.putExtra("ogName", it.movieOriginalName)
-            intent.putExtra("name", it.movieName)
-            intent.putExtra("release", it.movieRelease)
-            intent.putExtra("img", it.movieImg)
-            intent.putExtra("ogName", it.movieOriginalName)
-            intent.putExtra("score", it.movieScore)
-            intent.putExtra("desc", it.movieDesc)
             startActivity(intent)
         }
         favoriteList.adapter = movieAdapter
+
+        favSearchButton.setOnClickListener() {
+            val intent = Intent(context, SearchActivity::class.java)
+            intent.putExtra("movieName", favSearchText.text.toString())
+            this.startActivity(intent)
+        }
+        favSearchText.addTextChangedListener() {
+            favSearchButton.isEnabled = favSearchText.text.isNotEmpty()
+        }
     }
 
     override fun showFavorites(movieExample: List<MovieExample>) {
         movieAdapter.addMovies(movieExample)
+        if (movieExample.isEmpty()) {
+            favSearchButton.visibility = View.VISIBLE
+            favSearchText.visibility = View.VISIBLE
+            Toast.makeText(context, "No favorites added", Toast.LENGTH_SHORT).show()
+        } else {
+            favSearchButton.visibility = View.GONE
+            favSearchText.visibility = View.GONE
+        }
+
     }
 
     override fun deleteAll() {
-        Toast.makeText(context, "All Favorites Deleted", Toast.LENGTH_SHORT).show()
-        presenter.deleteFavorites()
+        val builder = AlertDialog.Builder(context)
+        builder.setMessage("Are you sure you want to delete all favorites?")
+            .setCancelable(false)
+            .setPositiveButton("Yes") { dialog, id ->
+                Toast.makeText(context, "All Favorites Deleted", Toast.LENGTH_SHORT).show()
+                presenter.deleteFavorites()
+            }
+            .setNegativeButton("No") { dialog, id ->
+                dialog.dismiss()
+            }
+        val alert = builder.create()
+        alert.show()
     }
 
     override fun showError(message: String) {
